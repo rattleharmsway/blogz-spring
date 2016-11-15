@@ -10,11 +10,22 @@
 
 <div th:each="post : ${posts}">
 
-	<h2><a th:href="'/blog/' + ${post.author.username} + '/' + ${post.uid}" th:text="${post.title}"></a></h2>
+	<h2><a th:href="'/blog/' + ${post.author.username} + '/' + ${post.getUid()}" th:text="${post.title}"></a></h2>
 	<p th:text="${post.body}"></p>
-	<p class="post-author">written by <a th:href="'/blog/' + ${post.author.username}" th:text="${post.author.username}"></a></p>
+	<p class="post-author">written by <a th:href="'/blog/' + ${post.author.username}" th:text="${post.author.username}" ></a> at <span th:text="${#dates.format(post.created, 'yyyy-MM-dd')}"></span></p>
+
+<!--  
+th:href="'/blog/' + ${post.author.username}" th:text="${post.author.username}" -->
 
 </div>
 
+
+
 </body>
+<footer>
+	<ul id="prev-next">
+	    <li><a th:hidden="${prev_hidden}" th:href="${prev_page}">prev</a></li>
+	    <li><a th:hidden="${next_hidden}" th:href="${next_page}">next</a></li>
+	</ul>
+</footer>
 </html>

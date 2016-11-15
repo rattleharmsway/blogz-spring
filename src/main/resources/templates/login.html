@@ -14,12 +14,14 @@
                 <td><label for="username">Username</label></td>
                 <td>
                     <input name="username" type="text" th:value="${username}"></input>
+                    <span class="error" th:text="${username_error}"></span>
                 </td>
             </tr>
             <tr>
                 <td><label for="password">Password</label></td>
                 <td>
                     <input name="password" type="password"></input>
+                    <span class="error" th:text="${password_error}"></span>
                 </td>
             </tr>
         </table>
